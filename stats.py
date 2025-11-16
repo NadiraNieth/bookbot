@@ -16,3 +16,16 @@ def count_char(text:str):
         else:
             num[char] += 1
     return num
+
+def sort_on(items):
+    return items["num"]
+
+def sort_dic(dic_char):
+    dic_list = []
+    for key in dic_char:
+        new_dic = {}
+        new_dic["char"] = key
+        new_dic["num"] = dic_char[key]
+        dic_list.append(new_dic)
+    dic_list.sort(reverse=True, key=sort_on)
+    return dic_list
