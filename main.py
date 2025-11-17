@@ -1,13 +1,21 @@
 from stats import get_book_text, count_words, count_char, sort_dic
-
+import sys
 
 
 def main():
-    book_path ="./books/frankenstein.txt"
+    try:
+        sys.argv[1] == None
+    except Exception as e:
+        print ("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    
+    book_path = sys.argv[1]
     book_text = get_book_text(book_path)
     number_of_chars = count_char(book_text)
     sorted_list = sort_dic(number_of_chars)
     
+    
+
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {book_path}...")
     print("----------- Word Count ----------")
